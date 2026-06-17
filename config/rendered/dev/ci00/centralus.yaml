@@ -1,12 +1,12 @@
 acm:
   mce:
     bundle:
-      digest: sha256:2fbd59d99219005e547eec97b7b7386f285993e9133c0478bd76c26f1251f621
+      digest: sha256:431ee4a3af785871d0d6ff8851dd19b93533d19a79c465f771efea7c6ca9e355
       registry: quay.io
       repository: redhat-user-workloads/crt-redhat-acm-tenant/mce-operator-bundle-mce-211
   operator:
     bundle:
-      digest: sha256:c57efbcc1a6eaf381a6acfc8971426e72cb780df393cc87b37d36d5707cc1792
+      digest: sha256:95a64428e3c487112419ad5d4fb97f6c3acd2883480603ddb82f42c089b26a04
       registry: quay.io
       repository: redhat-user-workloads/crt-redhat-acm-tenant/acm-operator-bundle-acm-216
 acr:
@@ -55,7 +55,7 @@ administration:
   sreServiceTag: CorpNetSaw
 aksCommandRuntime:
   image:
-    digest: sha256:11e61c511dde7b07da3911503685a8345ab41774ced139fe7c60efdc34a25184
+    digest: sha256:07e516155014ed9c2c85de1cf7f0c38f92def33d62dbd297dc15664d779601ef
     registry: mcr.microsoft.com
     repository: aks/command/runtime
 armHelperCertName: armHelperCert2
@@ -165,7 +165,7 @@ clustersService:
   deployDebugJobs: false
   environment: arohcpci00
   image:
-    digest: sha256:8132ccff93a2460ec753894af3d8bcb99cd52bf7360c69b288de2a0a8b7e7feb
+    digest: sha256:32ba494edb732fb3ac4718b733ec62bf4f216aff683747121af530228c0ac5f4
     registry: quay.io
     repository: app-sre/aro-hcp-clusters-service
   k8s:
@@ -427,7 +427,7 @@ hcpRecovery:
 hypershift:
   additionalInstallArg: --enable-cpo-overrides
   image:
-    digest: sha256:42db547a2f0e3b57827e4b37e48e598d1b94af8f752bc8efcf15986a4988e3f0
+    digest: sha256:8da292ba080e4012fc23e4fd12ac612c9f0ee412f4d0461ea09cbeb6d0b6bae3
     registry: quay.io
     repository: redhat-services-prod/crt-redhat-acm-tenant/hypershift/hypershift-operator
   limitClusterSizes: true
@@ -445,7 +445,7 @@ imageSync:
   ocMirror:
     enabled: true
     image:
-      digest: sha256:a5c7dc39275992123505d79a22cc721d2d09e9cce0e2e45184b04d3b5a6ea927
+      digest: sha256:20b7360eac762a90f6188705b3d5765ba840ff76359ffad3aae3fa353b305d1e
       registry: arohcpsvcdev.azurecr.io
       repository: image-sync/oc-mirror
     jobNamePrefix: ""
@@ -1040,7 +1040,7 @@ svc:
 tenantId: 64dc69e4-d083-49fc-9569-ebece1dd1408
 velero:
   azurePlugin:
-    digest: sha256:04708691d739da1843702d0370f971620f59fe8b78890b3abe7e40c000c297e8
+    digest: sha256:b92df9d921cde721e288a0fe14908cde588b777593da5fe33774e4e8a83da75f
     registry: registry.redhat.io
     repository: oadp/oadp-velero-plugin-for-microsoft-azure-rhel9
   hypershiftPlugin:
