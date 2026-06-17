@@ -25,7 +25,6 @@ import (
 
 	"k8s.io/apimachinery/pkg/util/sets"
 
-	"github.com/Azure/ARO-Tools/pipelines/graph"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
 	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
 
@@ -150,19 +149,14 @@ func (o *Options) CleanUpResources(ctx context.Context) error {
 		return fmt.Errorf("failed to get logger from context: %w", err)
 	}
 
-	var executionGraph *graph.Graph
-	if o.Entrypoint != nil {
-		executionGraph, err = graph.ForEntrypoint(&o.Topo.Topology, o.Entrypoint, o.Pipelines)
-	} else {
-		executionGraph, err = graph.ForPipeline(o.Service, o.Pipelines[o.Service.ServiceGroup])
-	}
+	executionGraph, stampConfigs, _, err := o.BuildStampedGraph()
 	if err != nil {
 		return fmt.Errorf("failed to generate execution graph: %w", err)
 	}
 
 	var regionalRGs sets.Set[string]
 	if o.OnlyRegional {
-		regionalRGs = sets.New(entrypointutils.RegionalResourceGroupNames(o.Config)...)
+		regionalRGs = sets.New(entrypointutils.RegionalResourceGroupNames(stampConfigs)...)
 	}
 
 	group, groupCtx := errgroup.WithContext(ctx)
